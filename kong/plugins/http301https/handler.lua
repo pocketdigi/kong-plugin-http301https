@@ -71,8 +71,6 @@ function plugin:access(plugin_conf)
 
     kong.response.exit(301,"Redirect to https",{["Location"] = https_url });
   end
-  -- your custom code here
-  ngx.req.set_header("Hello-World", kong.request.get_scheme())
 
 end --]]
 
@@ -80,8 +78,6 @@ end --]]
 function plugin:header_filter(plugin_conf)
   plugin.super.header_filter(self)
 
-  -- your custom code here, for example;
-  ngx.header["Bye-World"] = "this is on the response"
 
 end --]]
 
